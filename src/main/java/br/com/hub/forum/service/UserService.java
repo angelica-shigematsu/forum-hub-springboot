@@ -1,0 +1,22 @@
+package br.com.hub.forum.service;
+
+import br.com.hub.forum.dtos.ListUserDTO;
+import br.com.hub.forum.models.User;
+import br.com.hub.forum.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+    @Autowired
+    UserRepository repository;
+
+    public ListUserDTO addUser(User user) {
+        var userData = repository.save(user);
+        return new ListUserDTO(userData.getId(),
+                                userData.getName(),
+                                userData.getEmail(),
+                                userData.getUserName());
+    }
+
+}
