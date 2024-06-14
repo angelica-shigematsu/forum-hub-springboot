@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
 
     @Transactional
     public ListUserDTO addUser(User user) throws FindUserEmailException {
