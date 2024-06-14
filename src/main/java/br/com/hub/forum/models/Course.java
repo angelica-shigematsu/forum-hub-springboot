@@ -19,14 +19,17 @@ public class Course {
     @Column(unique = true, nullable = false)
     private long id;
 
+    @Column(unique = true)
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Topic> topic;
     public Course(CourseDTO courseDto) {
-        this.name = name;
-        this.category = Category.fromString(courseDto.category().name());
+        System.out.println(courseDto.category());
+        this.name = courseDto.name();
+        this.category = Category.valueOf(courseDto.category().name());
     }
 }
