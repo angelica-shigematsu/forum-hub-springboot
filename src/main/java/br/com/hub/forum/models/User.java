@@ -4,6 +4,7 @@ import br.com.hub.forum.dtos.UserDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -21,12 +22,14 @@ public class User {
     private long id;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\.\\-\\'\\ ]+$")
     private String name;
 
     @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&]).{8,}")
     private String password;
 
     @Column(unique = true)
