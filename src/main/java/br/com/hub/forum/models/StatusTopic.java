@@ -1,17 +1,14 @@
 package br.com.hub.forum.models;
 
 public enum StatusTopic {
-    DO,
-    DONE,
-    TODO;
+    RASCUNHO,
+    PUBLICADO;
 
     public static StatusTopic fromString(String value) {
         if (value.equalsIgnoreCase("do")){
-            return StatusTopic.DO;
-        } else if (value.equalsIgnoreCase("done")){
-            return StatusTopic.DONE;
+            return StatusTopic.RASCUNHO;
         } else {
-            return StatusTopic.TODO;
+            return StatusTopic.PUBLICADO;
         }
     }
 }
