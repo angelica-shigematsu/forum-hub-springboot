@@ -8,7 +8,7 @@ public record UserDTO(
         @NotBlank
         String name,
         @NotBlank
-        @Email
+        @Email(message = "Formato do email é inválido")
         String email,
         @NotBlank
         @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&]){8,}.+$")

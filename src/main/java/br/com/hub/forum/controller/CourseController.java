@@ -3,6 +3,7 @@ package br.com.hub.forum.controller;
 import br.com.hub.forum.dtos.CourseDTO;
 import br.com.hub.forum.models.Course;
 import br.com.hub.forum.service.CourseService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +19,10 @@ public class CourseController {
     CourseService service;
 
     @PostMapping("/register")
-    public ResponseEntity<Object> create(@RequestBody CourseDTO course) {
-        try {
-            Course courseCreated = service.addCourse(new Course(course));
+    public ResponseEntity create(@Valid @RequestBody CourseDTO course) {
 
-            return new ResponseEntity<>(courseCreated, HttpStatus.CREATED);
-        }catch(Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
-        }
+        Course courseCreated = service.addCourse(new Course(course));
+
+        return ResponseEntity.ok(courseCreated);
     }
 }
