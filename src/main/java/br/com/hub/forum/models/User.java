@@ -2,12 +2,9 @@ package br.com.hub.forum.models;
 
 import br.com.hub.forum.dtos.UserDTO;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,7 +20,7 @@ public class User {
 
     @Column(nullable = false)
     @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\.\\-\\'\\ ]+$")
-    private String name;
+    private String fullname;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -36,10 +33,10 @@ public class User {
     private String userName;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Topic> topic;
+    private List<TopicModel> topic;
 
     public User(UserDTO userDto) {
-        this.name = userDto.name();
+        this.fullname = userDto.name();
         this.email = userDto.email();
         this.password = userDto.password();
         this.userName = userDto.userName();
