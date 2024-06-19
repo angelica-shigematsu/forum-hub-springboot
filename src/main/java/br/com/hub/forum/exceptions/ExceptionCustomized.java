@@ -1,6 +1,5 @@
 package br.com.hub.forum.exceptions;
 
-import br.com.hub.forum.dtos.ListUserDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +8,20 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.NoSuchElementException;
+
 @RestControllerAdvice
 public class ExceptionCustomized {
+
+    // Utilizar a anotação @ExceptionHandler, do Spring, para indicar qual exception um determinado método da classe de tratamento de erros deve capturar;
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity manageErro404() {
         return ResponseEntity.notFound().build();
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity manageErrorInput(){
+        return ResponseEntity.badRequest().body("message: Falta campos");
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
