@@ -2,7 +2,10 @@ package br.com.hub.forum.models;
 
 import br.com.hub.forum.dtos.TopicDTO;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -12,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Topic {
+public class TopicModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -27,24 +30,16 @@ public class Topic {
     @Enumerated(EnumType.STRING)
     private StatusTopic statusTopic;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
-    private User author;
+    private long idAuthor;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="course_id")
-    private Course course;
+    private long idCourse;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="response_id")
-    private Response response;
-
-    public Topic(TopicDTO topicDto) {
+    public TopicModel(TopicDTO topicDto) {
         this.title = topicDto.title();
         this.message = topicDto.message();
-        this.dateCreated = topicDto.dateCreated();
+        this.dateCreated = LocalDate.now();
         this.statusTopic = StatusTopic.fromString(topicDto.statusTopic().name());
-        this.author = new User(topicDto.author());
-        this.course = new Course(topicDto.course());
+        this.idAuthor = topicDto.idAuthor();
+        this.idCourse = topicDto.idCourse();
     }
 }
