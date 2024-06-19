@@ -26,7 +26,7 @@ public class Course {
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Topic> topic;
+    private List<TopicModel> topic;
     public Course(CourseDTO courseDto) {
         System.out.println(courseDto.category());
         this.name = courseDto.name();

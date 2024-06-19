@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 public class CourseService {
     @Autowired
@@ -14,5 +16,9 @@ public class CourseService {
     @Transactional
     public Course addCourse(Course course) {
        return repository.save(course);
+    }
+
+    public Optional<Course> findById(long id) {
+        return repository.findById(id);
     }
 }
