@@ -1,4 +1,4 @@
-package br.com.hub.forum.exceptions;
+package br.com.hub.forum.infra.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;

@@ -21,7 +21,7 @@ public class UserService {
         return new ListUserDTO(userData.getId(),
                                 userData.getFullname(),
                                 userData.getEmail(),
-                                userData.getUserName());
+                                userData.getUsername());
     }
 
     public Optional<User> findById(long id) {
