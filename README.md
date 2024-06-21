@@ -11,7 +11,7 @@
 - Spring Boot
 - JPA Hibernate
 - MySQL
-- Autenticação
+- Autenticação JWT
 
 ## Como usar:
 - Execute o arquivo ForumApplication
@@ -32,4 +32,9 @@
     | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
     |---------------| ------------- | -------- | ------------- |
     | /topic/register     |  POST  | Criar tópicos |  ```{ "id": 1, "title": "Not Function", "message": "Estou tentado separar os números pela funcção split, mas não estou conseguindo. Estou utilizando numero.split()", "status": "PUBLICADO", "idAuthor": 1, "idCourse": 1}``` |
-    | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum | 
+    | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum |
+
+  - autenticação
+      | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
+    |---------------| ------------- | -------- | ------------- |
+    | /login     |  POST  | Criar tópicos |  ```{ "email": "name@email.com", "password": "123%5D1a"}``` |
