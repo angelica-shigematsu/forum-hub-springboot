@@ -6,13 +6,6 @@
 ## Status:
 - Em andamento
 
-## 🧩 Funcionalidades
-
-| Feature  | Details | Status     | 
-|---------------| ------------- | ------------ |
-| Criar modelos e dtos | <ul><li>Tabela Usuário</li> <li>Tabela Tópicos </li> <li>Tabela Cursos </li> <li>Tabela Respostas dos Tópicos </li> </ul> | Finalizado |
-| Mais funcionalidades a serem adicionadas....| | Pendente |
-
 # 🔨 Ferramentas:
 - Java 17.0
 - Spring Boot
@@ -26,6 +19,17 @@
   Exemplo: ```localhost:7080/user/register```
 - rotas
   - usuário
-    | Route  | Method Http | Exemplo de Requisição pelo arquivo json  |
-    |---------------| ------------- | -------- |
-    | /user/register     |  POST         | ```{ "name": "Nome Sobrenome", "email": "name@email.com", "password": "123%5D1a", "userName": "nome1"} ``` |
+    | Route  | Method Http | Description | Exemplo de Requisição pelo arquivo json  |
+    |---------------| ------------- | ------------ | -------- |
+    | /user/register     |  POST  | Criar usuário | ```{ "fullname": "Nome Sobrenome", "email": "name@email.com", "password": "123%5D1a", "userName": "nome1"} ``` |
+
+  - curso
+     | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
+    |---------------| ------------- | -------- | ---------- |
+    | /course/register     |  POST | Criar curso | ```{ "name": "JavaScript", "category": "BACKEND" } ``` |
+    
+  - tópico
+    | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
+    |---------------| ------------- | -------- | ------------- |
+    | /topic/register     |  POST  | Criar tópicos |  ```{ "id": 1, "title": "Not Function", "message": "Estou tentado separar os números pela funcção split, mas não estou conseguindo. Estou utilizando numero.split()", "status": "PUBLICADO", "idAuthor": 1, "idCourse": 1}``` |
+    | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum | 
