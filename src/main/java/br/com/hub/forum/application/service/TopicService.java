@@ -3,15 +3,18 @@ package br.com.hub.forum.application.service;
 import br.com.hub.forum.adapter.dtos.ListTopicAndAuthorAndCourse;
 import br.com.hub.forum.adapter.dtos.ListTopicDTO;
 import br.com.hub.forum.domain.models.Course;
+import br.com.hub.forum.domain.models.StatusTopic;
 import br.com.hub.forum.domain.models.TopicModel;
 import br.com.hub.forum.domain.models.User;
 import br.com.hub.forum.infra.repository.CourseRepository;
 import br.com.hub.forum.infra.repository.TopicModelRepository;
 import br.com.hub.forum.infra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -51,6 +54,7 @@ public class TopicService {
         return Optional.of(new ListTopicAndAuthorAndCourse(topic.get().getTitle(),
                 topic.get().getMessage(),
                 topic.get().getStatusTopic(),
+                topic.get().getDateCreated(),
                 user.get().getFullname(),
                 course.get().getName()));
     }
@@ -59,5 +63,9 @@ public class TopicService {
         Optional<TopicModel> model = repository.findById(id);
 
         return model;
+    }
+
+    public Optional<List<TopicModel>> findAllTopicsByDateCreated(StatusTopic statusTopic, Pageable page) {
+       return repository.findByStatusTopic(statusTopic, page);
     }
 }
