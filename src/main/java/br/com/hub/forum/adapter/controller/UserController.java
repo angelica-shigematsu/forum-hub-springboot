@@ -2,8 +2,8 @@ package br.com.hub.forum.adapter.controller;
 
 import br.com.hub.forum.adapter.dtos.ListUserDTO;
 import br.com.hub.forum.adapter.dtos.UserDTO;
-import br.com.hub.forum.domain.models.User;
 import br.com.hub.forum.application.service.UserService;
+import br.com.hub.forum.domain.models.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
