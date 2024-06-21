@@ -1,6 +1,6 @@
-package br.com.hub.forum.repository;
+package br.com.hub.forum.infra.repository;
 
-import br.com.hub.forum.models.Course;
+import br.com.hub.forum.domain.models.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

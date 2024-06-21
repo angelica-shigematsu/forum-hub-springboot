@@ -1,6 +1,6 @@
-package br.com.hub.forum.repository;
+package br.com.hub.forum.infra.repository;
 
-import br.com.hub.forum.models.TopicModel;
+import br.com.hub.forum.domain.models.TopicModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
