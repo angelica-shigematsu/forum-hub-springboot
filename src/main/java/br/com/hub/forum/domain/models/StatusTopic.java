@@ -5,7 +5,7 @@ public enum StatusTopic {
     PUBLICADO;
 
     public static StatusTopic fromString(String value) {
-        if (value.equalsIgnoreCase("do")){
+        if (value.equalsIgnoreCase("RASCUNHO")){
             return StatusTopic.RASCUNHO;
         } else {
             return StatusTopic.PUBLICADO;
