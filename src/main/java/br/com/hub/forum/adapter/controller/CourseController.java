@@ -1,11 +1,10 @@
-package br.com.hub.forum.controller;
+package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.dtos.CourseDTO;
-import br.com.hub.forum.models.Course;
-import br.com.hub.forum.service.CourseService;
+import br.com.hub.forum.adapter.dtos.CourseDTO;
+import br.com.hub.forum.domain.models.Course;
+import br.com.hub.forum.application.service.CourseService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

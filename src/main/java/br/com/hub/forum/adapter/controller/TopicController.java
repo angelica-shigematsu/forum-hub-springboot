@@ -1,13 +1,13 @@
-package br.com.hub.forum.controller;
+package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.dtos.ListTopicDTO;
-import br.com.hub.forum.dtos.TopicDTO;
-import br.com.hub.forum.models.Course;
-import br.com.hub.forum.models.TopicModel;
-import br.com.hub.forum.models.User;
-import br.com.hub.forum.service.CourseService;
-import br.com.hub.forum.service.TopicService;
-import br.com.hub.forum.service.UserService;
+import br.com.hub.forum.adapter.dtos.ListTopicDTO;
+import br.com.hub.forum.adapter.dtos.TopicDTO;
+import br.com.hub.forum.domain.models.Course;
+import br.com.hub.forum.domain.models.TopicModel;
+import br.com.hub.forum.domain.models.User;
+import br.com.hub.forum.application.service.CourseService;
+import br.com.hub.forum.application.service.TopicService;
+import br.com.hub.forum.application.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +44,10 @@ public class TopicController {
         return ResponseEntity.ok(service.listTopicAndAuhtorAndCourse(id));
     }
 
+
+/*    @GetMapping("/getAllData")
+    public ResponseEntity lisAllTopic() {
+
+    }*/
 
 }
