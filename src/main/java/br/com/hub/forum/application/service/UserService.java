@@ -1,8 +1,8 @@
-package br.com.hub.forum.service;
+package br.com.hub.forum.application.service;
 
-import br.com.hub.forum.dtos.ListUserDTO;
-import br.com.hub.forum.models.User;
-import br.com.hub.forum.repository.UserRepository;
+import br.com.hub.forum.adapter.dtos.ListUserDTO;
+import br.com.hub.forum.domain.models.User;
+import br.com.hub.forum.infra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

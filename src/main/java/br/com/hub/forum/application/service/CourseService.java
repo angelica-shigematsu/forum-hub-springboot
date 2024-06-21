@@ -1,7 +1,7 @@
-package br.com.hub.forum.service;
+package br.com.hub.forum.application.service;
 
-import br.com.hub.forum.models.Course;
-import br.com.hub.forum.repository.CourseRepository;
+import br.com.hub.forum.domain.models.Course;
+import br.com.hub.forum.infra.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

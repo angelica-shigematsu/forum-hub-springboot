@@ -1,6 +1,6 @@
-package br.com.hub.forum.service;
+package br.com.hub.forum.application.service;
 
-import br.com.hub.forum.repository.UserRepository;
+import br.com.hub.forum.infra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

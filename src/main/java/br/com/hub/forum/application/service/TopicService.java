@@ -1,13 +1,13 @@
-package br.com.hub.forum.service;
+package br.com.hub.forum.application.service;
 
-import br.com.hub.forum.dtos.ListTopicAndAuthorAndCourse;
-import br.com.hub.forum.dtos.ListTopicDTO;
-import br.com.hub.forum.models.Course;
-import br.com.hub.forum.models.TopicModel;
-import br.com.hub.forum.models.User;
-import br.com.hub.forum.repository.CourseRepository;
-import br.com.hub.forum.repository.TopicModelRepository;
-import br.com.hub.forum.repository.UserRepository;
+import br.com.hub.forum.adapter.dtos.ListTopicAndAuthorAndCourse;
+import br.com.hub.forum.adapter.dtos.ListTopicDTO;
+import br.com.hub.forum.domain.models.Course;
+import br.com.hub.forum.domain.models.TopicModel;
+import br.com.hub.forum.domain.models.User;
+import br.com.hub.forum.infra.repository.CourseRepository;
+import br.com.hub.forum.infra.repository.TopicModelRepository;
+import br.com.hub.forum.infra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
