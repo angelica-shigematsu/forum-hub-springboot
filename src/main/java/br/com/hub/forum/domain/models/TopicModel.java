@@ -1,6 +1,6 @@
-package br.com.hub.forum.models;
+package br.com.hub.forum.domain.models;
 
-import br.com.hub.forum.dtos.TopicDTO;
+import br.com.hub.forum.adapter.dtos.TopicDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

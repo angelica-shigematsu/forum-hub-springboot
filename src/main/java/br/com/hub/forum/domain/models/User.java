@@ -1,6 +1,6 @@
-package br.com.hub.forum.models;
+package br.com.hub.forum.domain.models;
 
-import br.com.hub.forum.dtos.UserDTO;
+import br.com.hub.forum.adapter.dtos.UserDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;

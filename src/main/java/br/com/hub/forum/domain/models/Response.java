@@ -1,4 +1,4 @@
-package br.com.hub.forum.models;
+package br.com.hub.forum.domain.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class Response {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="topic_id")
-    private Topic topic;
+    private TopicModel topic;
 
     private LocalDate dateCreated;
 

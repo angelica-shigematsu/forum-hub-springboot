@@ -1,4 +1,4 @@
-package br.com.hub.forum.models;
+package br.com.hub.forum.domain.models;
 
 public enum StatusTopic {
     RASCUNHO,

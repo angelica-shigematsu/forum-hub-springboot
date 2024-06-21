@@ -1,4 +1,4 @@
-package br.com.hub.forum.models;
+package br.com.hub.forum.domain.models;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.FetchType;
