@@ -1,4 +1,4 @@
-package br.com.hub.forum.dtos;
+package br.com.hub.forum.adapter.dtos;
 
 public record AuthenticationDTO(
         String email,

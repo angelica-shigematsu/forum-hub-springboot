@@ -1,6 +1,6 @@
-package br.com.hub.forum.dtos;
+package br.com.hub.forum.adapter.dtos;
 
-import br.com.hub.forum.models.StatusTopic;
+import br.com.hub.forum.domain.models.StatusTopic;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

@@ -1,7 +1,4 @@
-package br.com.hub.forum.dtos;
-
-import br.com.hub.forum.models.User;
-import jakarta.validation.constraints.NotNull;
+package br.com.hub.forum.adapter.dtos;
 
 public record ListUserDTO(
         Long id,
