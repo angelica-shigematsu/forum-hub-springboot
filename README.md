@@ -33,6 +33,7 @@
     |---------------| ------------- | -------- | ------------- |
     | /topic/register     |  POST  | Criar tópicos |  ```{ "id": 1, "title": "Not Function", "message": "Estou tentado separar os números pela funcção split, mas não estou conseguindo. Estou utilizando numero.split()", "status": "PUBLICADO", "idAuthor": 1, "idCourse": 1}``` |
     | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum |
+    | /topic/getAllData  |    GET  | Listar tópico com status published ordenado por data criada | Nenhum |
 
   - autenticação
       | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
