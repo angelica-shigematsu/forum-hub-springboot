@@ -28,9 +28,22 @@ public class TokenService {
                     .withExpiresAt(dateExpires())
                     .sign(algorithm);
         } catch (JWTCreationException exception){
-            return "Não foi possível criar token";
+            throw new RuntimeException("Token JWT inválido");
         }
-}
+    }
+
+    public String getSubject(String tokenJWT) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
+                    .withIssuer("API forumhub")
+                    .build()
+                    .verify(tokenJWT).getSubject();
+
+        } catch (JWTCreationException exception) {
+            throw new RuntimeException("Token JWT inválido ou expeirado");
+        }
+    }
 
     private Instant dateExpires() {
         return LocalDateTime.now().plusHours(3).toInstant(ZoneOffset.of("-03:00"));
