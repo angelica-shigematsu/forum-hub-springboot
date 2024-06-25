@@ -30,6 +30,8 @@ public class SecurityConfigurations {
                 .authorizeRequests()
                 .requestMatchers(HttpMethod.POST, "/login")
                 .permitAll()
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**")
+                .permitAll()
                 // .requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("ADMIN")
                 // e adicionar antes do controller @Secured("ROLE_ADMIN")
                 // @EnableMethodSecurity(securedEnabled = true)

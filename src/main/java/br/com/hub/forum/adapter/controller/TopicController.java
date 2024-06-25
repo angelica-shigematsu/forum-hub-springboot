@@ -9,6 +9,7 @@ import br.com.hub.forum.domain.models.Course;
 import br.com.hub.forum.domain.models.StatusTopic;
 import br.com.hub.forum.domain.models.TopicModel;
 import br.com.hub.forum.domain.models.User;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/topic")
+@SecurityRequirement(name = "bearer-key")
 public class TopicController {
     @Autowired
     TopicService service;
