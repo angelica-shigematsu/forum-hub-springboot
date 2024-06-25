@@ -14,9 +14,15 @@
 - Autenticação JWT
 
 ## Como usar:
+- Usando o doc do GITHUB (1) e Swagger (2)
 - Execute o arquivo ForumApplication
-- na url digite:  ```localhost:7080/``` e a rota.</br>
+  
+  (1) Na url digite:  ```localhost:7080/``` e a rota.</br>
   Exemplo: ```localhost:7080/user/register```
+  </br></br>
+  (2) Usando Swagger </br>
+  No browser digitar : ``` http://localhost:7080/swagger-ui/index.html ```
+  </br></btr>
 - rotas
   - usuário
     | Route  | Method Http | Description | Exemplo de Requisição pelo arquivo json  |
