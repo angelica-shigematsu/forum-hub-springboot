@@ -1,5 +1,6 @@
 package br.com.hub.forum.application.service;
 
+import br.com.hub.forum.adapter.dtos.FindTopicByCourseDTO;
 import br.com.hub.forum.adapter.dtos.ListTopicAndAuthorAndCourse;
 import br.com.hub.forum.adapter.dtos.ListTopicDTO;
 import br.com.hub.forum.domain.models.Course;
@@ -38,18 +39,18 @@ public class TopicService {
                 model.getMessage(),
                 model.getDateCreated(),
                 model.getStatusTopic(),
-                model.getIdAuthor(),
-                model.getIdCourse());
+                model.getAuthor().getId(),
+                model.getCourse().getId());
     }
 
     public Optional<ListTopicAndAuthorAndCourse> listTopicAndAuhtorAndCourse(long id) {
         Optional<TopicModel> topic = repository.findById(id);
 
 
-        Optional<User> user = userRepository.findById(topic.get().getIdAuthor());
+        Optional<User> user = userRepository.findById(topic.get().getId());
 
 
-        Optional<Course> course = courseRepository.findById(topic.get().getIdCourse());
+        Optional<Course> course = courseRepository.findById(topic.get().getId());
 
         return Optional.of(new ListTopicAndAuthorAndCourse(topic.get().getTitle(),
                 topic.get().getMessage(),
@@ -67,5 +68,9 @@ public class TopicService {
 
     public Optional<List<TopicModel>> findAllTopicsByDateCreated(StatusTopic statusTopic, Pageable page) {
        return repository.findByStatusTopic(statusTopic, page);
+    }
+
+    public Optional<List<FindTopicByCourseDTO>> findAllTopicsWithCourses(String name) {
+        return repository.findAllTopicWithCourse(name);
     }
 }

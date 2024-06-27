@@ -1,8 +1,8 @@
 package br.com.hub.forum.adapter.controller;
 
 import br.com.hub.forum.adapter.dtos.CourseDTO;
-import br.com.hub.forum.domain.models.Course;
 import br.com.hub.forum.application.service.CourseService;
+import br.com.hub.forum.domain.models.Course;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SecurityRequirement(name = "bearer-key")
 public class CourseController {
     @Autowired
-    CourseService service;
+    private CourseService service;
 
     @PostMapping("/register")
     public ResponseEntity create(@Valid @RequestBody CourseDTO course) {

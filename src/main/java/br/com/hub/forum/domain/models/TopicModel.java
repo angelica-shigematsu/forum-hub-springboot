@@ -30,16 +30,20 @@ public class TopicModel {
     @Enumerated(EnumType.STRING)
     private StatusTopic statusTopic;
 
-    private long idAuthor;
+    @ManyToOne
+    @JoinColumn(name = "id_author")
+    private User author;
 
-    private long idCourse;
+    @ManyToOne
+    @JoinColumn(name = "id_course")
+    private Course course;
 
     public TopicModel(TopicDTO topicDto) {
         this.title = topicDto.title();
         this.message = topicDto.message();
         this.dateCreated = LocalDate.now();
         this.statusTopic = StatusTopic.fromString(topicDto.statusTopic().name());
-        this.idAuthor = topicDto.idAuthor();
-        this.idCourse = topicDto.idCourse();
+        this.author = topicDto.author();
+        this.course = topicDto.course();
     }
 }

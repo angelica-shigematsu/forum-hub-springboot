@@ -1,6 +1,8 @@
 package br.com.hub.forum.adapter.dtos;
 
+import br.com.hub.forum.domain.models.Course;
 import br.com.hub.forum.domain.models.StatusTopic;
+import br.com.hub.forum.domain.models.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -12,9 +14,9 @@ public record TopicDTO(
         @NotNull
         StatusTopic statusTopic,
 
-        @NotNull
-        long idAuthor,
+        @NotBlank
+        User author,
 
         @NotNull
-        long idCourse) {
+        Course course) {
 }

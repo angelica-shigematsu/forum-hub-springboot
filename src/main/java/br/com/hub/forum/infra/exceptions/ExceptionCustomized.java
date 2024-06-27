@@ -39,7 +39,7 @@ public class ExceptionCustomized {
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity manageDupolicateEntry(DataIntegrityViolationException ex) {
+    public ResponseEntity manageDuplicateEntry(DataIntegrityViolationException ex) {
         var message = "Tente outro email";
 
         var erro = new DuplicateEntry("email", message);

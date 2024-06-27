@@ -1,7 +1,6 @@
 package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.adapter.dtos.ListTopicDTO;
-import br.com.hub.forum.adapter.dtos.TopicDTO;
+import br.com.hub.forum.adapter.dtos.*;
 import br.com.hub.forum.application.service.CourseService;
 import br.com.hub.forum.application.service.TopicService;
 import br.com.hub.forum.application.service.UserService;
@@ -34,12 +33,12 @@ public class TopicController {
     CourseService courseService;
 
     @PostMapping("/register")
-    public ResponseEntity createTopic(@Valid @RequestBody TopicDTO topicDto) {
-        Optional<User> user = userService.findById(topicDto.idAuthor());
-        Optional<Course> course = courseService.findById(topicDto.idCourse());
+    public ResponseEntity createTopic(@Valid @RequestBody TopicInputDTO topicDto) {
+        User user = userService.findById(topicDto.idAuthor()).get();
+        Course course = courseService.findById(topicDto.idCourse()).get();
 
         TopicDTO dto = new TopicDTO(topicDto.title(), topicDto.message(),
-                topicDto.statusTopic(), topicDto.idAuthor(), topicDto.idCourse());
+                topicDto.statusTopic(), user, course);
         ListTopicDTO topic = service.addTopic(new TopicModel(dto));
 
         return ResponseEntity.ok(topic);
@@ -56,6 +55,12 @@ public class TopicController {
                                                     @RequestParam(required = false) StatusTopic status, Pageable page
    ) {
         return service.findAllTopicsByDateCreated(status=StatusTopic.PUBLICADO, page);
+    }
+
+    @GetMapping
+    public ResponseEntity findTopicByCourse(@RequestBody GetNameCourseDTO dto) {
+        Optional<List<FindTopicByCourseDTO>> topic = service.findAllTopicsWithCourses(dto.name());
+        return ResponseEntity.ok(topic);
     }
 
 }
