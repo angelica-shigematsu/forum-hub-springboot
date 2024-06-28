@@ -1,4 +1,4 @@
-package br.com.hub.forum.adapter.dtos;
+package br.com.hub.forum.adapter.dtos.user;
 
 public record ListUserDTO(
         Long id,

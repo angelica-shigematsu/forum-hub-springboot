@@ -1,9 +1,11 @@
 package br.com.hub.forum.domain.models;
 
-import br.com.hub.forum.adapter.dtos.UserDTO;
+import br.com.hub.forum.adapter.dtos.user.UserDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -35,6 +38,8 @@ public class User implements UserDetails {
 
     @Column(unique = true)
     private String userName;
+
+    private boolean active = true;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TopicModel> topic;
@@ -79,5 +84,17 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setActive(boolean active) {
+        if (active) {
+            this.active = true;
+        } else {
+            this.active = false;
+        }
     }
 }

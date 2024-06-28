@@ -1,4 +1,4 @@
-package br.com.hub.forum.adapter.dtos;
+package br.com.hub.forum.adapter.dtos.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
