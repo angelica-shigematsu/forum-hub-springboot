@@ -1,7 +1,7 @@
 package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.adapter.dtos.ListUserDTO;
-import br.com.hub.forum.adapter.dtos.UserDTO;
+import br.com.hub.forum.adapter.dtos.user.ListUserDTO;
+import br.com.hub.forum.adapter.dtos.user.UserDTO;
 import br.com.hub.forum.application.service.UserService;
 import br.com.hub.forum.domain.models.User;
 import jakarta.validation.Valid;
@@ -17,8 +17,15 @@ public class UserController {
     UserService service;
 
     @PostMapping("/register")
-    public ResponseEntity<Object> create(@Valid @RequestBody UserDTO userDto){
+    public ResponseEntity create(@Valid @RequestBody UserDTO userDto){
         ListUserDTO user = service.addUser(new User(userDto));
         return ResponseEntity.ok(user);
     }
+
+    @DeleteMapping("/{id}")
+    public  ResponseEntity deleteUser(@PathVariable long id) {
+        service.disableUser(id);
+        return ResponseEntity.ok("Desabilitado usuário");
+    }
+
 }
