@@ -1,5 +1,6 @@
 package br.com.hub.forum.domain.models;
 
+import br.com.hub.forum.adapter.dtos.response.ResponseDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -20,7 +21,7 @@ public class Response {
     @Column(unique = true, nullable = false)
     private long id;
 
-    private String message;
+    private String solution;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="topic_id")
@@ -31,5 +32,10 @@ public class Response {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User author;
 
-    private String solution;
+    public Response(ResponseDTO responseDto) {
+        this.solution = responseDto.solution();
+        this.dateCreated = LocalDate.now();
+        this.author = responseDto.author();
+        this.topic = responseDto.topic();
+    }
 }
