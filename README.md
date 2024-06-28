@@ -2,6 +2,7 @@
 
 ## 🏹 Objetivo
 - Fazer um projeto que disponibiliza fórum de perguntas e respostas na área de TI.
+- Uso de DTO para formatar campos de entrada e saída da requisição.
 
 ## Status:
 - Em andamento
@@ -29,6 +30,7 @@
     | Route  | Method Http | Description | Exemplo de Requisição pelo arquivo json  |
     |---------------| ------------- | ------------ | -------- |
     | /user/register     |  POST  | Criar usuário | ```{ "fullname": "Nome Sobrenome", "email": "name@email.com", "password": "123%5D1a", "userName": "nome1"} ``` |
+    | /user/:id          | DELETE  | Desabilitar usuário | NENHUM |
 
   - curso
      | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
@@ -42,8 +44,16 @@
     | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum |
     | /topic/getAllData  |    GET  | Listar tópico com status publicado ordenado por data criada | Nenhum |
     | /topic    |  GET  | Listar todos os tópicos de acordo com o nome do curso e que está com status de publicado|  ```{ "name": "JavaScript"}``` |
+    | /topic/:id    |  PUT | Alterar dados do tópico |  ```{ "name": "JavaScript", "message": "Erro: Estou tentado separar os números pela funcção split, mas não estou conseguindo. Estou utilizando numero.split()"}``` |
+    | /topic/:id    | DELETE | Excluir tópico | Nenhum |
 
+  - resposta da pergunta
+    | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
+    |---------------| ------------- | -------- | ------------- |
+    | /response    |  POST  | Criar resposta |  ```{"solution": "a tipagem da variável tem que ser string para usar o split()", "idTopic": 1,"idAuthor": 1}``` |
   - autenticação
-      | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
+    | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
     |---------------| ------------- | -------- | ------------- |
     | /login     |  POST  | Criar tópicos |  ```{ "email": "name@email.com", "password": "123%5D1a"}``` |
+
+    
