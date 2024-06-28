@@ -12,6 +12,7 @@
 - JPA Hibernate
 - MySQL
 - Autenticação JWT
+- Swagger
 
 ## Como usar:
 - Usando o doc do GITHUB (1) e Swagger (2)
@@ -39,7 +40,8 @@
     |---------------| ------------- | -------- | ------------- |
     | /topic/register     |  POST  | Criar tópicos |  ```{ "id": 1, "title": "Not Function", "message": "Estou tentado separar os números pela funcção split, mas não estou conseguindo. Estou utilizando numero.split()", "status": "PUBLICADO", "idAuthor": 1, "idCourse": 1}``` |
     | /topic/getData/:id  |    GET  | Listar tópico específico | Nenhum |
-    | /topic/getAllData  |    GET  | Listar tópico com status published ordenado por data criada | Nenhum |
+    | /topic/getAllData  |    GET  | Listar tópico com status publicado ordenado por data criada | Nenhum |
+    | /topic    |  GET  | Listar todos os tópicos de acordo com o nome do curso e que está com status de publicado|  ```{ "name": "JavaScript"}``` |
 
   - autenticação
       | Route  | Method Http |  Description | Exemplo de Requisição pelo arquivo json  |
