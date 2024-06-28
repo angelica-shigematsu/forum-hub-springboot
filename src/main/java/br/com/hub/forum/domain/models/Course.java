@@ -1,6 +1,6 @@
 package br.com.hub.forum.domain.models;
 
-import br.com.hub.forum.adapter.dtos.CourseDTO;
+import br.com.hub.forum.adapter.dtos.course.CourseDTO;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package br.com.hub.forum.adapter.dtos;
+package br.com.hub.forum.adapter.dtos.course;
 
 import br.com.hub.forum.domain.models.Category;
 import jakarta.validation.constraints.NotBlank;

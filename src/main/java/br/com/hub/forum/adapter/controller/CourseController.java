@@ -1,6 +1,6 @@
 package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.adapter.dtos.CourseDTO;
+import br.com.hub.forum.adapter.dtos.course.CourseDTO;
 import br.com.hub.forum.application.service.CourseService;
 import br.com.hub.forum.domain.models.Course;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
