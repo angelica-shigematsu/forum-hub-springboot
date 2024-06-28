@@ -1,6 +1,6 @@
 package br.com.hub.forum.domain.models;
 
-import br.com.hub.forum.adapter.dtos.TopicDTO;
+import br.com.hub.forum.adapter.dtos.topic.TopicDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -45,5 +45,19 @@ public class TopicModel {
         this.statusTopic = StatusTopic.fromString(topicDto.statusTopic().name());
         this.author = topicDto.author();
         this.course = topicDto.course();
+    }
+
+    public void updateTopic(TopicDTO dto) {
+        if (dto.title() != null) {
+            this.title = dto.title();
+        }
+
+        if (dto.message() != null) {
+            this.message = dto.message();
+        }
+
+        if (dto.statusTopic() != null) {
+            this.statusTopic = dto.statusTopic();
+        }
     }
 }

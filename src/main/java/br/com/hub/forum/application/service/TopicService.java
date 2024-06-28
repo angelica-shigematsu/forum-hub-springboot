@@ -1,8 +1,9 @@
 package br.com.hub.forum.application.service;
 
-import br.com.hub.forum.adapter.dtos.FindTopicByCourseDTO;
-import br.com.hub.forum.adapter.dtos.ListTopicAndAuthorAndCourse;
-import br.com.hub.forum.adapter.dtos.ListTopicDTO;
+import br.com.hub.forum.adapter.dtos.topic.FindTopicByCourseDTO;
+import br.com.hub.forum.adapter.dtos.topic.ListTopicAndAuthorAndCourse;
+import br.com.hub.forum.adapter.dtos.topic.ListTopicDTO;
+import br.com.hub.forum.adapter.dtos.topic.TopicDTO;
 import br.com.hub.forum.domain.models.Course;
 import br.com.hub.forum.domain.models.StatusTopic;
 import br.com.hub.forum.domain.models.TopicModel;
@@ -72,5 +73,14 @@ public class TopicService {
 
     public Optional<List<FindTopicByCourseDTO>> findAllTopicsWithCourses(String name) {
         return repository.findAllTopicWithCourse(name);
+    }
+
+    public void updateTopic(TopicDTO dto, long id) {
+        var topic = repository.getReferenceById(id);
+        topic.updateTopic(dto);
+    }
+
+    public void removeTopic(long id) {
+        repository.deleteById(id);
     }
 }

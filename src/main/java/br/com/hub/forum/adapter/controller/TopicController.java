@@ -1,6 +1,6 @@
 package br.com.hub.forum.adapter.controller;
 
-import br.com.hub.forum.adapter.dtos.*;
+import br.com.hub.forum.adapter.dtos.topic.*;
 import br.com.hub.forum.application.service.CourseService;
 import br.com.hub.forum.application.service.TopicService;
 import br.com.hub.forum.application.service.UserService;
@@ -63,4 +63,15 @@ public class TopicController {
         return ResponseEntity.ok(topic);
     }
 
+    @PutMapping
+    public ResponseEntity updateTopic(@RequestBody @Valid TopicDTO dto, @PathVariable long id) {
+        service.updateTopic(dto, id);
+        return ResponseEntity.status(200).body("Dados os tópicos foram alterados");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteTopic(@PathVariable long id) {
+        service.removeTopic(id);
+        return ResponseEntity.ok("Removido com sucesso");
+    }
 }

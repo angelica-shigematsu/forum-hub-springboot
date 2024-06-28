@@ -1,4 +1,4 @@
-package br.com.hub.forum.adapter.dtos;
+package br.com.hub.forum.adapter.dtos.topic;
 
 import br.com.hub.forum.domain.models.StatusTopic;
 
